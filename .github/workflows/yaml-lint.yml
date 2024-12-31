@@ -1,0 +1,27 @@
+name: yaml-lint
+
+on:
+    workflow_call:
+    inputs:
+      paths:
+        type: string
+        required: false
+        default: "**/*.yml **/*.yaml"
+        description: |
+          A space-separated list of file patterns to lint. Defaults to all YAML files.
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        fetch-depth: 0
+
+      - name: Run Super-Linter
+        uses: github/super-linter@v7
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_YAML: true

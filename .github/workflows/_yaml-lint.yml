@@ -1,0 +1,10 @@
+name: yaml-lint
+on:
+  pull_request: {}
+  permissions:
+    contents: read
+    packages: read
+    statuses: write
+jobs:
+  markdown-lint:
+    uses: ./.github/workflows/yaml-lint.yml
