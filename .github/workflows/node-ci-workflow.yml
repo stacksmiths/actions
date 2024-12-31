@@ -1,4 +1,4 @@
-name: node-ci-workflow
+name: Node CI Workflow
 
 on:
   workflow_call:
